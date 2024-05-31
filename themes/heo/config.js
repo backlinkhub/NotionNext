@@ -19,7 +19,7 @@ const CONFIG = {
   HEO_HERO_TITLE_2: 'Indie Hacker',
   HEO_HERO_TITLE_3: 'Azuo.Me',
   HEO_HERO_TITLE_4: 'Build in Public',
-  HEO_HERO_TITLE_5: "Let's go. Make some global money.",
+  HEO_HERO_TITLE_5: "Let's make some global money.",
   HEO_HERO_TITLE_LINK: 'https://tangly1024.com',
 
   // 英雄区显示三个置顶分类
