@@ -27,8 +27,17 @@ const Footer = ({ title }) => {
         id='footer-bottom'
         className='w-full h-20 flex flex-col p-3 lg:flex-row justify-between px-6 items-center bg-[#f1f3f7] dark:bg-[#30343f]'>
         <div id='footer-bottom-left' className='pl-32'>
-          <a href='/links' className='underline dark:text-gray-300 '>
-            友情链接
+          <a href='/archive' className='underline dark:text-gray-300 pr-8'>
+            Azuo.Blog Archive
+          </a>
+          <a href='/category' className='underline dark:text-gray-300 pr-8'>
+            Azuo.Blog Category
+          </a>
+          <a href='/tag' className='underline dark:text-gray-300 pr-8'>
+            Azuo.Blog Tag
+          </a>
+          <a href='/links' className='underline dark:text-gray-300 pr-8'>
+            Friends' Links
           </a>
         </div>
 
@@ -49,7 +58,7 @@ const Footer = ({ title }) => {
           </a>
           . Powed by{' '}
           <a
-            href='https://github.com/tangly1024/NotionNext'
+            href='https://github.com/azuomm/NotionNext'
             className=' dark:text-gray-300 '>
             NotionNext
           </a>{' '}
