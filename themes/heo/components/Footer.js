@@ -41,7 +41,7 @@ const Footer = ({ title }) => {
           </a>
         </div>
 
-        <div id='footer-bottom-right'>
+        <div id='footer-bottom-right' className='pr-20'>
           {/* {siteConfig('BEI_AN') && <><i className='fas fa-shield-alt' /> <a href='https://beian.miit.gov.cn/' className='mr-2'>{siteConfig('BEI_AN')}</a></>}
 
                 <span className='hidden busuanzi_container_site_pv'>
@@ -59,7 +59,7 @@ const Footer = ({ title }) => {
           . Powed by{' '}
           <a
             href='https://github.com/azuomm/NotionNext'
-            className=' dark:text-gray-300 '>
+            className='underline dark:text-gray-300 '>
             NotionNext
           </a>{' '}
         </div>
