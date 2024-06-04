@@ -25,8 +25,8 @@ const Footer = ({ title }) => {
       {/* 底部页面信息 */}
       <div
         id='footer-bottom'
-        className='w-full h-20 flex flex-col p-3 lg:flex-row justify-between px-6 items-center bg-[#f1f3f7] dark:bg-[#30343f]'>
-        <div id='footer-bottom-left' className='pl-32'>
+        className='w-full h-20 flex flex-col p-4 lg:flex-row justify-between px-6 items-center bg-[#f1f3f7] dark:bg-[#30343f]'>
+        <div id='footer-bottom-left'>
           <a href='/archive' className='underline dark:text-gray-300 pr-8'>
             Azuo.Blog Archive
           </a>
@@ -41,7 +41,7 @@ const Footer = ({ title }) => {
           </a>
         </div>
 
-        <div id='footer-bottom-right' className='pr-20'>
+        <div id='footer-bottom-right'>
           {/* {siteConfig('BEI_AN') && <><i className='fas fa-shield-alt' /> <a href='https://beian.miit.gov.cn/' className='mr-2'>{siteConfig('BEI_AN')}</a></>}
 
                 <span className='hidden busuanzi_container_site_pv'>

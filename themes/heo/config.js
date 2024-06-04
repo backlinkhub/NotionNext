@@ -41,7 +41,7 @@ const CONFIG = {
     '江湖中的"佐哥"💃',
     'CV工程师💃'
   ],
-  HEO_INFO_CARD_URL: 'https://x.com/azuomm', // 个人资料底部按钮链接
+  HEO_INFO_CARD_URL: 'https://x.com/azuo_blog', // 个人资料底部按钮链接
   HEO_INFO_CARD_Youtube_URL: 'https://www.youtube.com/@azuoblog',
   // 用户技能图标
   HEO_GROUP_ICONS: [
