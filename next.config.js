@@ -11,26 +11,27 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 // 扫描项目 /themes下的目录名
 const themes = scanSubdirectories(path.resolve(__dirname, 'themes'))
-// 检测用户开启的多语言
-const locales = (function () {
-  // 根据BLOG_NOTION_PAGE_ID 检查支持多少种语言数据.
-  // 支持如下格式配置多个语言的页面id xxx,zh:xxx,en:xxx
-  const langs = ['zh', 'en']
-  if (BLOG.NOTION_PAGE_ID.indexOf(',') > 0) {
-    const siteIds = BLOG.NOTION_PAGE_ID.split(',')
-    for (let index = 0; index < siteIds.length; index++) {
-      const siteId = siteIds[index]
-      const prefix = extractLangPrefix(siteId)
-      // 如果包含前缀 例如 zh , en 等
-      if (prefix) {
-        if (!langs.includes(prefix)) {
-          langs.push(prefix)
-        }
-      }
-    }
-  }
-  return langs
-})()
+
+// Remove or comment out the locales function
+// const locales = (function () {
+//   // 根据BLOG_NOTION_PAGE_ID 检查支持多少种语言数据.
+//   // 支持如下格式配置多个语言的页面id xxx,zh:xxx,en:xxx
+//   const langs = ['zh']
+//   if (BLOG.NOTION_PAGE_ID.indexOf(',') > 0) {
+//     const siteIds = BLOG.NOTION_PAGE_ID.split(',')
+//     for (let index = 0; index < siteIds.length; index++) {
+//       const siteId = siteIds[index]
+//       const prefix = extractLangPrefix(siteId)
+//       // 如果包含前缀 例如 zh , en 等
+//       if (prefix) {
+//         if (!langs.includes(prefix)) {
+//           langs.push(prefix)
+//         }
+//       }
+//     }
+//   }
+//   return langs
+// })()
 
 /**
  * 扫描指定目录下的文件夹名，用于获取所有主题
@@ -80,55 +81,19 @@ const nextConfig = {
       }
     ]
   },
-  // 多语言， 在export时禁用
-  i18n:
-    process.env.npm_lifecycle_event === 'export'
-      ? undefined
-      : {
-          defaultLocale: BLOG.LANG.slice(0, 2),
-          // 支持的所有多语言,按需填写即可
-          locales
-        },
-  // 重写url
+  // Remove the i18n configuration
+  // i18n: process.env.npm_lifecycle_event === 'export'
+  //   ? undefined
+  //   : {
+  //       defaultLocale: BLOG.LANG.slice(0, 2),
+  //       locales
+  //     },
+  // Modify the rewrites function to remove language-related rewrites
   async rewrites() {
-    // 处理多语言重定向
-    const langsRewrites = []
-    if (BLOG.NOTION_PAGE_ID.indexOf(',') > 0) {
-      const siteIds = BLOG.NOTION_PAGE_ID.split(',')
-      const langs = []
-      for (let index = 0; index < siteIds.length; index++) {
-        const siteId = siteIds[index]
-        const prefix = extractLangPrefix(siteId)
-        // 如果包含前缀 例如 zh , en 等
-        if (prefix) {
-          langs.push(prefix)
-        }
-        console.log('[Locales]', siteId)
-      }
-
-      // 映射多语言
-      // 示例： source: '/:locale(zh|en)/:path*' ; :locale() 会将语言放入重写后的 `?locale=` 中。
-      langsRewrites.push(
-        {
-          source: `/:locale(${langs.join('|')})/:path*`,
-          destination: '/:path*'
-        },
-        // 匹配没有路径的情况，例如 [domain]/zh 或 [domain]/en
-        {
-          source: `/:locale(${langs.join('|')})`,
-          destination: '/'
-        },
-        // 匹配没有路径的情况，例如 [domain]/zh/ 或 [domain]/en/
-        {
-          source: `/:locale(${langs.join('|')})/`,
-          destination: '/'
-        }
-      )
-    }
-
     return [
-      ...langsRewrites,
-      // 伪静态重写
+      // Remove langsRewrites
+      // ...langsRewrites,
+      // Keep the HTML rewrite
       {
         source: '/:path*.html',
         destination: '/:path*'
